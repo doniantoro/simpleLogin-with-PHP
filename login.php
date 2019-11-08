@@ -6,7 +6,7 @@
 		<div class="kotak">
 			
 			<div class="gambar">
-				<img src="images/input/img_avatar.png" alt="ava" class="ava">
+				<img src="IMG/img_avatar.png" alt="ava" class="ava">
 			</div>
 
 			<center><h3>SILAKHAN LOGIN</h3>	</center><br>		
@@ -20,11 +20,6 @@
 					</form>
 					<hr>
 					
-                    <a href='login_google/auth.php'>
-                    <div style="width:350px; background-color:white; border: 0.6px solid black;   box-shadow: 3px 3px 3px rgba(0,0,0,0.5); border-radius: 10px; "> 
-                    <img style="width:45px; "src="file_upload/g.png"> 
-                    <p style="color:black;font-size:20px;float:right;margin-right:40%;margin-top:3%;">Masuk</p>
-                    </div></a>
                     
 			</div>
  
