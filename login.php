@@ -1,6 +1,7 @@
 <html>
   <head>
-    <title>Login-Pilih Kampus</title>
+	<title>Simple login with php</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
 		<div class="kotak">			
@@ -23,12 +24,14 @@
 	
 		<?php
 		if ($_SERVER["REQUEST_METHOD"] == "POST"){	
-			include 'php/koneksi.php';
-	        //Escape function to forbide sql injection
+			include 'connection.php';//connection
+	        	
+			//Escape function to forbide sql injection
 			$email_login = mysqli_real_escape_string ($conn,$_POST['email_login']);
 			$pass_login = mysqli_real_escape_string ($conn,$_POST['pass_login']);
-			$sql      = " select * from login where email_login='$email_login'";
 			
+			//query procces
+			$sql      = " select * from login where email_login='$email_login'";			
 			$result1=$conn->query($sql);
 			$result2=$conn->query($sql);
 			
