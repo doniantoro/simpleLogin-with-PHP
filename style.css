@@ -1,0 +1,28 @@
+			body{
+				background-image:
+				url("images/input/background.jpg");	
+			}.kotak  {
+				width: 350px;
+				background: white;
+				/*meletakkan form ke tengah*/
+				margin: 80px auto;
+				padding: 30px 20px;
+
+			}.gambar {
+				text-align: center;
+				margin: 24px 0 12px 0;
+			}img.ava {
+				width: 50%;
+			}.login {
+				box-sizing : border-box;
+				width: 100%;
+				padding: 10px;
+				font-size: 11pt;
+				margin-bottom: 10px;
+				border:5px solid #ddd;
+			}.submit{
+				background-color :green;
+				width: 100%;
+				text-decoration : none;
+				font-size:30px
+			}
