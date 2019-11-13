@@ -10,52 +10,49 @@
 			</div>
 			
 			<center><h3>LOGIN PAGE</h3></center><br>		
-			  <form method="post">
-				<label><b> EMAIL </b></label>
-				<input type="text" name="email_login" id="email_input"  class="login" placeholder="Input email"> <br>
+			  <form  method="post">
+				<label><b> Username </b></label>
+				<input type="text" name="username"   class="login" placeholder="Input Username"> <br>
 				<label><b> Password	</b></label>
-				<input type="password" name="pass_login" id="password_input" class="login" placeholder="Input password"> 
-				<input type="submit">
-			</form><hr>
+				<input type="password" name="pass_login" class="login" placeholder="Input password"> 
+				<center><input type="submit" ></center>
+			</form>
 		</div>
  
 			
 			
 	
 		<?php
+
+			echo "hallo" ;
 		if ($_SERVER["REQUEST_METHOD"] == "POST"){	
+
+			echo "hello" ;
 			include 'connection.php';//connection
 	        	
 			//Escape function to forbide sql injection
-			$email_login = mysqli_real_escape_string ($conn,$_POST['email_login']);
+			$username = mysqli_real_escape_string ($conn,$_POST['username']);
 			$pass_login = mysqli_real_escape_string ($conn,$_POST['pass_login']);
-			
+
+			echo "hello" ;
 			//query procces
-			$sql      = " select * from login where email_login='$email_login'";			
-			$result1=$conn->query($sql);
-			$result2=$conn->query($sql);
+			$sql      = " select * from login_info where username='$username'";			
+			$result=$conn->query($sql);
 			
-			$user = mysqli_fetch_assoc($result2);
-			
-			//Enkripsi Password
-			$hash= password_hash('$pass_login',PASSWORD_DEFAULT);
-            		if(password_verify('$pass_login',$user['pass_login'])){
-				$data = mysqli_fetch_array($result1);
-             		}
+			$data = mysqli_fetch_array($result);
+				
+
              
-			if($data>0)
+			if($data[username]==$username && $data[password]==$pass_login)
 			{
 				//get session
 				session_start();
 				$_SESSION['id_login'] = $data['id_login'];
-				$id=$_SESSION['id_login'];
-				echo "<script>alert('Wellcome there.');document.location.href='../../'</script>";
+				$_SESSION['username'] = $data['username'];
+				echo "<script>alert('Wellcome $username.');document.location.href='index.php'</script>";
 			}
 			
-				else
-				{
-					echo "<script>alert('Email/password is wrong');document.location.href='login.php'</script>";
-				}
+			
 			}
 		?>
 

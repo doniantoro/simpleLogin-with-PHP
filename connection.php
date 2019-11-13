@@ -7,5 +7,5 @@
 	$charset = 'utf8mb4';
 	$dsn ="mysql:host=$host;dbname=$dbname;charset=$charset";
 
-$conn= new mysqli("localhost",$user,$pass,$pass);
+$conn= new mysqli("localhost",$user,$pass,$dbname);
 $pdo = new PDO($dsn ,$user ,$pass ,[]);
